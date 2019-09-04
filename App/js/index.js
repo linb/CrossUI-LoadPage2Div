@@ -15,9 +15,9 @@ xui.Class('App', 'xui.Module',{
             append(
                 xui.create("xui.UI.Link")
                 .setHost(host,"xui_ui_link1")
-                .setLeft("21.666666666666668em")
+                .setLeft("42.5em")
                 .setTop("3.3333333333333335em")
-                .setCaption("Load google.com into div")
+                .setCaption("Load an web page into div")
                 .onClick([
                     {
                         "desc":"Action 1",
@@ -38,10 +38,33 @@ xui.Class('App', 'xui.Module',{
             append(
                 xui.create("xui.UI.Div")
                 .setHost(host,"xui_ui_div17")
-                .setLeft("15em")
-                .setTop("8.333333333333334em")
-                .setWidth("41.666666666666664em")
+                .setLeft("40.833333333333336em")
+                .setTop("6.666666666666667em")
+                .setWidth("25.833333333333332em")
                 .setHeight("23.333333333333332em")
+            );
+            
+            append(
+                xui.create("xui.UI.Element")
+                .setHost(host,"xui_ui_element2")
+                .setLeft("3.3333333333333335em")
+                .setTop("6.666666666666667em")
+                .setWidth("28.833333333333332em")
+                .setHeight("16.833333333333332em")
+                .setNodeName("iframe")
+                .setAttributes({
+                    "name":"abc_def"
+                })
+            );
+            
+            append(
+                xui.create("xui.UI.Link")
+                .setHost(host,"xui_ui_link5")
+                .setLeft("4.166666666666667em")
+                .setTop("3.3333333333333335em")
+                .setCaption("Load web page into an iframe")
+                .setHref("//crossui.com")
+                .setTarget("abc_def")
             );
             
             return children;
