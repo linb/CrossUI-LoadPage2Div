@@ -1,47 +1,55 @@
-// The default code is a module class (inherited from xui.Module)
-// Ensure that all the value of "key/value pair" does not refer to external variables
 xui.Class('App', 'xui.Module',{
     Instance:{
-        // Dependency classes
         Dependencies:[],
-        // Required modules
         Required:[],
 
-        // To initialize properties
         properties : {},
 
-        // To initialize instance(e.g. properties)
         initialize : function(){
         },
 
-        // To initialize internal components (mostly UI controls)
-        // *** If you're not a skilled, dont modify this function manually ***
         iniComponents : function(){
             // [[Code created by CrossUI RAD Studio
             var host=this, children=[], append=function(child){children.push(child.get(0));};
-
+            
+            append(
+                xui.create("xui.UI.Link")
+                .setHost(host,"xui_ui_link1")
+                .setLeft("21.666666666666668em")
+                .setTop("3.3333333333333335em")
+                .setCaption("Load google.com into div")
+                .onClick([
+                    {
+                        "desc":"Action 1",
+                        "type":"control",
+                        "target":"xui_ui_div17",
+                        "args":[
+                            {
+                                "iframeAutoLoad":"//www.crossui.com"
+                            },
+                            { }
+                        ],
+                        "method":"setProperties",
+                        "event":1
+                    }
+                ])
+            );
+            
+            append(
+                xui.create("xui.UI.Div")
+                .setHost(host,"xui_ui_div17")
+                .setLeft("15em")
+                .setTop("8.333333333333334em")
+                .setWidth("41.666666666666664em")
+                .setHeight("23.333333333333332em")
+            );
+            
             return children;
             // ]]Code created by CrossUI RAD Studio
         },
 
-        // Give a chance to determine which UI controls will be appended to parent container
         customAppend : function(parent, subId, left, top){
-            // "return false" will cause all the internal UI controls will be added to the parent panel
             return false;
         }
-        /*,
-        // To determine how properties affects this module
-        propSetAction : function(prop){
-        },
-        // To set all node's style in this modlue
-        customStyle:{}
-    },
-    //To customize the default properties and event handlers
-    Static:{
-        $DataModel:{
-        },
-        $EventHandlers:{
-        }
-    */
     }
 });
